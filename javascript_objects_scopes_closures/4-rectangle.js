@@ -27,14 +27,33 @@ class Rectangle {
             console.log(row);
         }
     }
-    rotate(){
-        this.print(this.width, this.height);
-    }
-    double(){
-        this.print(this.width*2,this.height*2);
-    }
+
+    rotate() {
+        const temp = this.width;
+        this.width = this.height;
+        this.height = temp;
+        //just interchange the values of height and width
+        //when print is called, execute with the new values
+      }
+    
+      double() {
+        this.width *= 2;
+        this.height *= 2;
+      }
+    // rotate(){
+    //     this.print(this.height, this.width);
+    // }
+    // double(){
+    //     this.print(this.width*2,this.height*2);
+    // }
 
 };
+
+
+
+
+
+// const r1 = new Rectangle(2, 3);
 
 
 module.exports = Rectangle;
