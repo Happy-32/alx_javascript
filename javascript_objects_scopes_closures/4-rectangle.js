@@ -28,10 +28,10 @@ class Rectangle {
         }
     }
     rotate(){
-        print(this.height, this.width);
+        this.print(this.width, this.height);
     }
     double(){
-        print(this.width*2,this.height*2);
+        this.print(this.width*2,this.height*2);
     }
 
 };
