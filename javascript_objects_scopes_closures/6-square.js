@@ -35,6 +35,10 @@ class Square extends BaseSquare {
     super(size);
   }
 
+  double(){
+    this.size = this.size*2;
+  }
+
   charPrint(c) {
     if (c === undefined) {
       c = 'X';
