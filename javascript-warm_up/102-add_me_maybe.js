@@ -1,6 +1,7 @@
 function addMeMaybe(number, theFunction){
+    let text = "New Value:"
     number += 1
-    console.log(number);
+    console.log(text, + number);
 }
 
 module.exports = {
