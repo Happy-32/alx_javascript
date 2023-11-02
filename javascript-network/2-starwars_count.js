@@ -3,12 +3,21 @@ const request = require('request');
 // const Id = process.argv[2];
 const id = 18;
 const url = process.argv[2];
+let list = 0;
 
 
 request.get(url, function (error, response, body){
 
-  // try {
-  //   const films = JSON.parse(body).results;
+  try {
+    const films = JSON.parse(body).results;
+    films.forEach((film) => {
+      film.characters.forEach((character) => {
+        if (character.includes(id)){
+          list += 1;
+        }
+      })      
+    });
+    console.log(list)
   //   const has_Wedge = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`));
   //   const numberofmovies = has_Wedge.length;
     
@@ -16,13 +25,9 @@ request.get(url, function (error, response, body){
   // } catch (parseError){
   //   console.error('Error while parsing JSON: ', parseError);
   // }
-
-  data = JSON.parse(body)
-  // Filter the films by checking if Wedge Antilles is present in the characters array
-  const filmsWithWedgeAntilles = data.results.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`));
-
-  // Print the number of films where Wedge Antilles is present
-  console.log(filmsWithWedgeAntilles.length);
+  }catch (parseError){
+    console.log(parseError)
+  }
 
 });
 
