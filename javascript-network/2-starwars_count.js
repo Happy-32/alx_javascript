@@ -5,8 +5,6 @@ const id = 18;
 const url = process.argv[2];
 
 
-const parts = [];
-
 request.get(url, function (error, response, body){
 
   try {
