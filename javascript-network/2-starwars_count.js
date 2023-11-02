@@ -1,5 +1,4 @@
 const request = require('request');
-const fs = require('fs')
 
 // const Id = process.argv[2];
 const id = 18;
@@ -8,7 +7,7 @@ const url = process.argv[2];
 
 // request.get(url, function (error, response, body){
 
-  // try {
+//   try {
 //     const films = JSON.parse(body).results;
 //     const has_Wedge = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`));
 //     const numberofmovies = has_Wedge.length;
@@ -20,9 +19,11 @@ const url = process.argv[2];
 
 // });
 
-request.get(url).pipe(fs.createWriteStream('wedge.json'))
-// request.get(url, {encoding: 'utf-8'}, function (error, response, body){
-//   console.log(response)
-
-// });
-
+request.get(`https://swapi-api.alx-tools.com/api/people/${id}/`, {encoding: 'utf-8'}, function(error, response, body){
+  try{
+    has_wedge = JSON.parse(body)
+    console.log(has_wedge.films.length)
+  } catch(parseError){
+    console.log('Error while parsing JSON: ', parseError);
+  }
+});
