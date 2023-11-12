@@ -1,1 +1,1 @@
-this is a readme file
+In this project i get to add, remove and modify some elements of html using javaScript.
